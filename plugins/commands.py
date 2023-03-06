@@ -18,6 +18,18 @@ logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
 
+BTN = InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("⚡Mᴀɪɴ Gʀᴏᴜᴘ⚡", url="https://t.me/+ebT3TGDywLM0OGY9"),
+                    InlineKeyboardButton("💥Sʜᴀʀᴇ💥", url="https://t.me/share/url?url=https://t.me/UPDATECHANNELHUB")
+                ],
+		        [
+                    InlineKeyboardButton("🎭Uᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ🎭", url="https://t.me/UPDATECHANNELHUB"),
+                ]    
+            ]
+)
+
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
@@ -42,13 +54,15 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('🔗 ᴏᴜʀ ᴄʜᴀɴᴇʟꜱ ʟɪɴᴋꜱ 🔗', url='https://t.me/CINEMAHUB_LINK')
             ],[
-            InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria')
+            InlineKeyboardButton('📌 ᴍʏ ɢʀᴏᴜᴘ', url='https://t.me/+79jrN3qvNW5kOTk1'),
+            InlineKeyboardButton('🛠 ᴍʏ ᴏᴡɴᴇʀ', url='https://t.me/BASTINJOE')
             ],[
-            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
-            InlineKeyboardButton('😊 About', callback_data='about')
+            InlineKeyboardButton('🛠 ᴍʏ ᴏᴡɴᴇʀ', callback_data='help'),
+            InlineKeyboardButton('⚙️ ᴀʙᴏᴜᴛ', callback_data='about')
+            ],[
+            InlineKeyboardButton('➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -81,21 +95,29 @@ async def start(client, message):
                 btn.append([InlineKeyboardButton(" 🔄 Try Again", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
         await client.send_message(
             chat_id=message.from_user.id,
-            text="**Please Join My Updates Channel to use this Bot!**",
+            text="""**♦️ READ THIS INSTRUCTION ♦️
+            
+🗣 നിങ്ങൾ ചോദിക്കുന്ന സിനിമകൾ നിങ്ങൾക്ക് ലഭിക്കണം എന്നുണ്ടെങ്കിൽ നിങ്ങൾ ഞങ്ങളുടെ ചാനലിലേക്ക് റിക്വസ്റ്റ് ചെയ്തിരിക്കണം. റിക്വസ്റ്റ് ചെയ്യാൻ " 📢 Join Channel 📢 "എന്ന ബട്ടണിലോ താഴെ കാണുന്ന ലിങ്കിലോ ക്ലിക്ക് ചെയ്യാവുന്നതാണ്. ജോയിൻ ചെയ്ത ശേഷം " 🔄 Try Again 🔄 " എന്ന ബട്ടണിൽ അമർത്തിയാൽ നിങ്ങൾക്ക് ഞാൻ ആ സിനിമ അയച്ചു തരുന്നതാണ്..😍  
+
+🗣 In Order To Get The Movie Requested By You in Our Group, You Must Have To join Our Official Channel First By Clicking " 📢 Join Channel 📢 " Button or the Link shown Below. After That, Click " 🔄 Try Again 🔄 " Button. I'll Send You That Movie 🙈
+
+👇 CLICK "JOIN CHANNEL" THEN CLICK "TRY AGAIN" 👇**""",
             reply_markup=InlineKeyboardMarkup(btn),
             parse_mode=enums.ParseMode.MARKDOWN
             )
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-            InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('🔗 ᴏᴜʀ ᴄʜᴀɴᴇʟꜱ ʟɪɴᴋꜱ 🔗', url='https://t.me/CINEMAHUB_LINK')
             ],[
-            InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria')
+            InlineKeyboardButton('📌 ᴍʏ ɢʀᴏᴜᴘ'', url='https://t.me/+79jrN3qvNW5kOTk1'),
+            InlineKeyboardButton('🛠 ᴍʏ ᴏᴡɴᴇʀ', url='https://t.me/BASTINJOE')
             ],[
-            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
-            InlineKeyboardButton('😊 About', callback_data='about')
-        ]]
+            InlineKeyboardButton('⚠️ ʜᴇʟᴘ', callback_data='help'),
+            InlineKeyboardButton('⚙️ ᴀʙᴏᴜᴛ', callback_data='about')
+            ],[
+            InlineKeyboardButton('➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ', url=f'http://t.me/{temp.U_NAME}?startgroup=true') 
+         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(PICS),
